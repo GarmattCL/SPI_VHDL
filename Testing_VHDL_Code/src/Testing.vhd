@@ -97,8 +97,8 @@ begin
                     cs_sig        <= '0';
                     if bit_cnt < 7 then
                         mosi_sig    <= data_mosi(6-bit_cnt);
-                        --shift_reg   <= shift_reg(6 downto 0) & miso; -- letztes bit empfangen
-                        --data_mosi   <= shift_reg; -- empfangene daten Speichern
+                        shift_reg   <= shift_reg(6 downto 0) & miso; -- letztes bit empfangen
+                        data_miso   <= shift_reg; -- empfangene daten Speichern
                         
                         bit_cnt <= bit_cnt+1;
                         if bit_cnt > 6 then
@@ -108,13 +108,13 @@ begin
                         cs_sig  <= '1';
                         state   <= STOP;
                     end if;
-                --SCLK geht nicht
+                
                 ---------------------------------------------
                 when STOP =>
                     STATUS_LED    <= '1'; --off
                     cs_sig  <= '1'; -- Slave deaktivieren
                     state <= IDLE;
-                --SCLK geht nicht
+                
                 ---------------------------------------------
                 when others =>
                     STATUS_LED    <= '1'; --off

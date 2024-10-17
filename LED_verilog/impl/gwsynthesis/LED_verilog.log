@@ -1,8 +1,0 @@
-GowinSynthesis start
-Running parser ...
-Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\LED_verilog\src\counter.v'
-Compiling module 'led'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\LED_verilog\src\counter.v":1)
-ERROR (EX3534) : Assignment under multiple clock edges is not supported for synthesis("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\LED_verilog\src\counter.v":11)
-WARN  (EX2666) : Clock signal 'btn1' cannot be used as a data signal("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\LED_verilog\src\counter.v":9)
-Module 'led' remains a black box due to errors in its contents("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\LED_verilog\src\counter.v":1)
-GowinSynthesis finish
