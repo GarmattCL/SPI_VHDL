@@ -2,9 +2,9 @@
  {
   "InstFile" : "C:/Gowin/Gowin_V1.9.10.02_x64/IDE/bin/Documents/Testing_VHDL_Code/src/Testing.vhd",
   "InstLine" : 5,
-  "InstName" : "LED_Blink",
+  "InstName" : "SPI_Master",
   "ModuleFile" : "C:/Gowin/Gowin_V1.9.10.02_x64/IDE/bin/Documents/Testing_VHDL_Code/src/Testing.vhd",
   "ModuleLine" : 5,
-  "ModuleName" : "LED_Blink"
+  "ModuleName" : "SPI_Master"
  }
 ]

@@ -1,0 +1,29 @@
+Reading netlist file: "C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\SPI_Master_Project\impl\gwsynthesis\SPI_Master_Project.vg"
+Parsing netlist file "C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\SPI_Master_Project\impl\gwsynthesis\SPI_Master_Project.vg" completed
+Processing netlist completed
+Reading constraint file: "C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\SPI_Master_Project\src\SPI_Master_Project.cst"
+Physical Constraint parsed completed
+Running placement......
+[10%] Placement Phase 0 completed
+[20%] Placement Phase 1 completed
+[30%] Placement Phase 2 completed
+[50%] Placement Phase 3 completed
+Running routing......
+[60%] Routing Phase 0 completed
+[70%] Routing Phase 1 completed
+[80%] Routing Phase 2 completed
+[90%] Routing Phase 3 completed
+Running timing analysis......
+[95%] Timing analysis completed
+Placement and routing completed
+Bitstream generation in progress......
+Bitstream generation completed
+Running power analysis......
+[100%] Power analysis completed
+Generate file "C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\SPI_Master_Project\impl\pnr\SPI_Master_Project.power.html" completed
+Generate file "C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\SPI_Master_Project\impl\pnr\SPI_Master_Project.pin.html" completed
+Generate file "C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\SPI_Master_Project\impl\pnr\SPI_Master_Project.rpt.html" completed
+Generate file "C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\SPI_Master_Project\impl\pnr\SPI_Master_Project.rpt.txt" completed
+Generate file "C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\SPI_Master_Project\impl\pnr\SPI_Master_Project.tr.html" completed
+Thu Oct  3 18:05:46 2024
+

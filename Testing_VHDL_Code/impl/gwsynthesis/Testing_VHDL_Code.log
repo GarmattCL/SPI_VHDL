@@ -1,11 +1,14 @@
 GowinSynthesis start
 Running parser ...
 Analyzing VHDL file 'C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\src\Testing.vhd'
-Analyzing entity 'led_blink'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\src\Testing.vhd":5)
-Analyzing architecture 'behavioral'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\src\Testing.vhd":13)
-Processing 'LED_Blink(Behavioral)'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\src\Testing.vhd":5)
-NOTE  (EX0101) : Current top module is "LED_Blink"
+Analyzing entity 'spi_master'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\src\Testing.vhd":5)
+Analyzing architecture 'behavioral'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\src\Testing.vhd":18)
+Processing 'SPI_Master(Behavioral)'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\src\Testing.vhd":5)
+'others' clause is never selected("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\src\Testing.vhd":121)
+WARN  (EX4160) : Latch inferred for net 'shift_reg[7]'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\src\Testing.vhd":133)
+NOTE  (EX0101) : Current top module is "SPI_Master"
 [5%] Running netlist conversion ...
+WARN  (CV0016) : Input MISO is unused("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\src\Testing.vhd":11)
 Running device independent optimization ...
 [10%] Optimizing Phase 0 completed
 [15%] Optimizing Phase 1 completed

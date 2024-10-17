@@ -1,0 +1,15 @@
+-d C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\SPI_Master_Project\impl\gwsynthesis\SPI_Master_Project.vg
+-p GW1NR-9-QFN88P-6
+-pn GW1NR-LV9QN88PC6/I5
+-cst C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\SPI_Master_Project\src\SPI_Master_Project.cst
+-cfg C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\SPI_Master_Project\impl\pnr\device.cfg
+-sdc C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\SPI_Master_Project\src\SPI_Master_Project.sdc
+-bit
+-tr
+-ph
+-timing
+-cst_error
+-convert_sdp32_36_to_sdp16_18
+-correct_hold 1
+-route_maxfan 23
+-global_freq 50.000

@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Module name="LED_Blink" Register="25" Lut="49" T_Register="25(25)" T_Lut="49(49)"/>
+<Module name="SPI_Master" Register="31" Lut="50" T_Register="31(31)" T_Lut="50(50)"/>

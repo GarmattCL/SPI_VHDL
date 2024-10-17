@@ -1,0 +1,36 @@
+//
+//Written by GowinSynthesis
+//Tool Version "V1.9.10.02"
+//Tue Sep 17 11:20:19 2024
+
+//Source file index table:
+//file0 "\C:/Gowin/Gowin_V1.9.10.02_x64/IDE/bin/Documents/fpga_project/src/led.v"
+`timescale 100 ps/100 ps
+module led (
+  btn1,
+  led
+)
+;
+input btn1;
+output led;
+wire led_d;
+wire VCC;
+wire GND;
+  IBUF btn1_ibuf (
+    .O(led_d),
+    .I(btn1) 
+);
+  OBUF led_obuf (
+    .O(led),
+    .I(led_d) 
+);
+  VCC VCC_cZ (
+    .V(VCC)
+);
+  GND GND_cZ (
+    .G(GND)
+);
+  GSR GSR (
+    .GSRI(VCC) 
+);
+endmodule /* led */

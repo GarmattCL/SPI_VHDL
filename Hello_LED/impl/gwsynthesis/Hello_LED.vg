@@ -1,0 +1,31 @@
+//
+//Written by GowinSynthesis
+//Tool Version "V1.9.10.02"
+//Fri Oct  4 10:46:19 2024
+
+//Source file index table:
+//file0 "\C:/Gowin/Gowin_V1.9.10.02_x64/IDE/bin/Documents/Hello_LED/src/led_control.vhd"
+`timescale 100 ps/100 ps
+module led_control (
+  clk,
+  led
+)
+;
+input clk;
+output led;
+wire VCC;
+wire GND;
+  OBUF led_obuf (
+    .O(led),
+    .I(VCC) 
+);
+  VCC VCC_cZ (
+    .V(VCC)
+);
+  GND GND_cZ (
+    .G(GND)
+);
+  GSR GSR (
+    .GSRI(VCC) 
+);
+endmodule /* led_control */
