@@ -8,5 +8,6 @@
         <File path="src/Testing.vhd" type="file.vhdl" enable="1"/>
         <File path="src/Testing_VHDL_Code.cst" type="file.cst" enable="1"/>
         <File path="src/Testing_VHDL_Code.sdc" type="file.sdc" enable="1"/>
+        <File path="src/Testing_VHDL_Code.rao" type="file.gao" enable="1"/>
     </FileList>
 </Project>

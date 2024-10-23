@@ -3,12 +3,36 @@ Running parser ...
 Analyzing VHDL file 'C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\src\Testing.vhd'
 Analyzing entity 'spi_master'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\src\Testing.vhd":5)
 Analyzing architecture 'behavioral'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\src\Testing.vhd":18)
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.10.02_x64\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_mem_ctrl.v'
+Analyzing included file 'C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\impl\gwsynthesis\RTL_GAO\ao_0\gw_ao_top_define.v'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_mem_ctrl.v":133)
+Back to file 'C:\Gowin\Gowin_V1.9.10.02_x64\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_mem_ctrl.v'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_mem_ctrl.v":133)
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.10.02_x64\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_top.v'
+Analyzing included file 'C:\Gowin\Gowin_V1.9.10.02_x64\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_define.v'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_top.v":685)
+Back to file 'C:\Gowin\Gowin_V1.9.10.02_x64\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_top.v'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_top.v":685)
+Analyzing included file 'C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\impl\gwsynthesis\RTL_GAO\ao_0\gw_ao_top_define.v'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_top.v":685)
+Back to file 'C:\Gowin\Gowin_V1.9.10.02_x64\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_top.v'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_top.v":685)
+Analyzing included file 'C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\impl\gwsynthesis\RTL_GAO\ao_0\gw_ao_parameter.v'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_top.v":685)
+Back to file 'C:\Gowin\Gowin_V1.9.10.02_x64\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_top.v'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_top.v":685)
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.10.02_x64\IDE\data\ipcores\GAO_LITE\GW_CON\gw_con_top.v'
+Analyzing included file 'C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\impl\gwsynthesis\RTL_GAO\ao_control\gw_con_top_define.v'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\data\ipcores\GAO_LITE\GW_CON\gw_con_top.v":367)
+Back to file 'C:\Gowin\Gowin_V1.9.10.02_x64\IDE\data\ipcores\GAO_LITE\GW_CON\gw_con_top.v'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\data\ipcores\GAO_LITE\GW_CON\gw_con_top.v":367)
+Analyzing included file 'C:\Gowin\Gowin_V1.9.10.02_x64\IDE\data\ipcores\GAO_LITE\GW_CON\gw_con_parameter.v'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\data\ipcores\GAO_LITE\GW_CON\gw_con_top.v":367)
+Back to file 'C:\Gowin\Gowin_V1.9.10.02_x64\IDE\data\ipcores\GAO_LITE\GW_CON\gw_con_top.v'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\data\ipcores\GAO_LITE\GW_CON\gw_con_top.v":367)
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.10.02_x64\IDE\data\ipcores\gw_jtag.v'
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\impl\gwsynthesis\RTL_GAO\gw_gao_top.v'
+Compiling module '**'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_mem_ctrl.v":133)
+Extracting RAM for identifier '**'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_mem_ctrl.v":133)
+Compiling module '**'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_top.v":685)
+WARN  (EX3791) : Expression size ** truncated to fit in target size **("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\data\ipcores\GAO_LITE\GW_AO_0\gw_ao_top.v":685)
+Compiling module '**'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\data\ipcores\GAO_LITE\GW_CON\gw_con_top.v":367)
+Compiling module 'GW_JTAG'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\data\ipcores\gw_jtag.v":1)
+Compiling module 'gw_gao'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\impl\gwsynthesis\RTL_GAO\gw_gao_top.v":1)
 Processing 'SPI_Master(Behavioral)'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\src\Testing.vhd":5)
-'others' clause is never selected("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\src\Testing.vhd":121)
-WARN  (EX4160) : Latch inferred for net 'data_mosi[7]'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\src\Testing.vhd":133)
+'others' clause is never selected("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\src\Testing.vhd":126)
+WARN  (EX4160) : Latch inferred for net 'shift_reg[7]'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\src\Testing.vhd":138)
+Trying to combine GAO to RTL design
 NOTE  (EX0101) : Current top module is "SPI_Master"
 [5%] Running netlist conversion ...
-WARN  (CV0016) : Input MISO is unused("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\src\Testing.vhd":11)
 Running device independent optimization ...
 [10%] Optimizing Phase 0 completed
 [15%] Optimizing Phase 1 completed

@@ -12,27 +12,27 @@
   <Part Number>: GW1N-LV9QN88C6/I5
   <Device>: GW1N-9
   <Device Version>: C
-  <Created Time>:Thu Oct 17 21:36:16 2024
+  <Created Time>:Wed Oct 23 14:11:34 2024
 
 
 2. PnR Details
 
   Running placement:
-    Placement Phase 0: CPU time = 0h 0m 0.005s, Elapsed time = 0h 0m 0.005s
-    Placement Phase 1: CPU time = 0h 0m 0.092s, Elapsed time = 0h 0m 0.093s
-    Placement Phase 2: CPU time = 0h 0m 0.001s, Elapsed time = 0h 0m 0.001s
+    Placement Phase 0: CPU time = 0h 0m 0.035s, Elapsed time = 0h 0m 0.035s
+    Placement Phase 1: CPU time = 0h 0m 0.086s, Elapsed time = 0h 0m 0.085s
+    Placement Phase 2: CPU time = 0h 0m 0.047s, Elapsed time = 0h 0m 0.047s
     Placement Phase 3: CPU time = 0h 0m 1s, Elapsed time = 0h 0m 1s
     Total Placement: CPU time = 0h 0m 1s, Elapsed time = 0h 0m 1s
  Running routing:
     Routing Phase 0: CPU time = 0h 0m 0s, Elapsed time = 0h 0m 0s
-    Routing Phase 1: CPU time = 0h 0m 0.16s, Elapsed time = 0h 0m 0.16s
-    Routing Phase 2: CPU time = 0h 0m 0.075s, Elapsed time = 0h 0m 0.075s
+    Routing Phase 1: CPU time = 0h 0m 0.158s, Elapsed time = 0h 0m 0.158s
+    Routing Phase 2: CPU time = 0h 0m 0.205s, Elapsed time = 0h 0m 0.205s
     Routing Phase 3: CPU time = 0h 0m 0s, Elapsed time = 0h 0m 0s
-    Total Routing: CPU time = 0h 0m 0.235s, Elapsed time = 0h 0m 0.235s
+    Total Routing: CPU time = 0h 0m 0.363s, Elapsed time = 0h 0m 0.363s
  Generate output files:
-    CPU time = 0h 0m 1s, Elapsed time = 0h 0m 1s
+    CPU time = 0h 0m 2s, Elapsed time = 0h 0m 2s
 
- Total Time and Memory Usage: CPU time = 0h 0m 3s, Elapsed time = 0h 0m 3s, Peak memory usage = 298MB
+ Total Time and Memory Usage: CPU time = 0h 0m 3s, Elapsed time = 0h 0m 3s, Peak memory usage = 262MB
 
 
 3. Resource Usage Summary
@@ -40,22 +40,23 @@
   ----------------------------------------------------------
   Resources                   | Usage
   ----------------------------------------------------------
-  Logic                       | 49/8640  <1%
-    --LUT,ALU,ROM16           | 49(49 LUT, 0 ALU, 0 ROM16)
+  Logic                       | 250/8640  3%
+    --LUT,ALU,ROM16           | 250(250 LUT, 0 ALU, 0 ROM16)
     --SSRAM(RAM16)            | 0
-  Register                    | 31/6693  <1%
+  Register                    | 219/6693  4%
     --Logic Register as Latch | 0/6480  0%
-    --Logic Register as FF    | 27/6480  <1%
+    --Logic Register as FF    | 217/6480  4%
     --I/O Register as Latch   | 0/213  0%
-    --I/O Register as FF      | 4/213  2%
-  CLS                         | 27/4320  <1%
-  I/O Port                    | 8
-  I/O Buf                     | 7
-    --Input Buf               | 3
-    --Output Buf              | 4
+    --I/O Register as FF      | 2/213  <1%
+  CLS                         | 211/4320  5%
+  I/O Port                    | 12
+  I/O Buf                     | 12
+    --Input Buf               | 7
+    --Output Buf              | 5
     --Inout Buf               | 0
   IOLOGIC                     | 0%
-  BSRAM                       | 0%
+  BSRAM                       | 8%
+    --SDPB                    | 2
   DSP                         | 0%
   PLL                         | 0/2  0%
   DCS                         | 0/8  0%
@@ -77,7 +78,7 @@
   -----------------------
   bank 1   | 1/25(4%)    
   bank 2   | 3/23(13%)   
-  bank 3   | 4/23(17%)   
+  bank 3   | 8/23(34%)   
   =======================
 
 
@@ -86,8 +87,8 @@
   -------------------------------
   Global Clock  | Usage       
   -------------------------------
-  PRIMARY       | 1/8(13%)
-  LW            | 0/8(0%)
+  PRIMARY       | 2/8(25%)
+  LW            | 1/8(13%)
   GCLK_PIN      | 2/3(67%)
   PLL           | 0/2(0%)
   CLKDIV        | 0/8(0%)
@@ -100,7 +101,9 @@
   -------------------------------------------
   Signal         | Global Clock   | Location
   -------------------------------------------
-  clk_d          | PRIMARY        |  BL
+  clk_d          | PRIMARY        |  TL BR BL
+  gw_gao_inst_0/control0[0]| PRIMARY        |  TL BR BL
+  gw_gao_inst_0/gao_jtag_reset| LW             |  -
   ===========================================
 
 
@@ -113,10 +116,14 @@ clk         |           | 52/1          | Y          | in    | IOR17[A] | LVCMOS
 reset       |           | 3/3           | Y          | in    | IOL2[A]  | LVCMOS18   | NA    | UP        | ON        | NONE       | NA         | NA         | OFF             | NA            | 1.8       
 MISO        |           | 26/2          | Y          | in    | IOB8[B]  | LVCMOS18   | NA    | UP        | ON        | NONE       | NA         | NA         | NA              | NA            | 1.8       
 launch_pin  |           | 4/3           | Y          | in    | IOL5[A]  | LVCMOS18   | NA    | UP        | ON        | NONE       | NA         | NA         | OFF             | NA            | 1.8       
+tms_pad_i   |           | 5/3           | N          | in    | IOL11[A] | LVCMOS18   | NA    | UP        | ON        | NONE       | NA         | NA         | OFF             | NA            | 1.8       
+tck_pad_i   |           | 6/3           | N          | in    | IOL11[B] | LVCMOS18   | NA    | UP        | ON        | NONE       | NA         | NA         | OFF             | NA            | 1.8       
+tdi_pad_i   |           | 7/3           | N          | in    | IOL12[B] | LVCMOS18   | NA    | UP        | ON        | NONE       | NA         | NA         | OFF             | NA            | 1.8       
 SCLK        |           | 11/3          | Y          | out   | IOL15[A] | LVCMOS18   | 8     | UP        | NA        | NA         | OFF        | NA         | OFF             | NA            | 1.8       
 MOSI        |           | 27/2          | Y          | out   | IOB11[A] | LVCMOS18   | 8     | UP        | NA        | NA         | OFF        | NA         | NA              | NA            | 1.8       
 CS          |           | 25/2          | Y          | out   | IOB8[A]  | LVCMOS18   | 8     | UP        | NA        | NA         | OFF        | NA         | NA              | NA            | 1.8       
 STATUS_LED  |           | 14/3          | Y          | out   | IOL22[B] | LVCMOS18   | 8     | UP        | NA        | NA         | OFF        | NA         | OFF             | NA            | 1.8       
+tdo_pad_o   |           | 8/3           | N          | out   | IOL13[A] | LVCMOS18   | 8     | UP        | NA        | NA         | OFF        | NA         | OFF             | NA            | 1.8       
 ===================================================================================================================================================================================================================
 
 
@@ -174,10 +181,10 @@ Loc./Bank| Signal      | Dir.  | Site     | IO Type  | Drive | Pull Mode | PCI C
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 3/3      | reset       | in    | IOL2[A]  | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | NA         | OFF             | NA            | 1.8  
 4/3      | launch_pin  | in    | IOL5[A]  | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | NA         | OFF             | NA            | 1.8  
-5/3      | -           | in    | IOL11[A] | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | NA         | NA              | NA            | 1.8  
-6/3      | -           | in    | IOL11[B] | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | NA         | NA              | NA            | 1.8  
-7/3      | -           | in    | IOL12[B] | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | NA         | NA              | NA            | 1.8  
-8/3      | -           | out   | IOL13[A] | LVCMOS18 | 8     | UP        | NA        | NA         | OFF        | NA         | NA              | NA            | 1.8  
+5/3      | tms_pad_i   | in    | IOL11[A] | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | NA         | OFF             | NA            | 1.8  
+6/3      | tck_pad_i   | in    | IOL11[B] | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | NA         | OFF             | NA            | 1.8  
+7/3      | tdi_pad_i   | in    | IOL12[B] | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | NA         | OFF             | NA            | 1.8  
+8/3      | tdo_pad_o   | out   | IOL13[A] | LVCMOS18 | 8     | UP        | NA        | NA         | OFF        | NA         | OFF             | NA            | 1.8  
 9/3      | -           | in    | IOL13[B] | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | NA         | NA              | NA            | 1.8  
 10/3     | -           | in    | IOL14[A] | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | NA         | NA              | NA            | 1.8  
 11/3     | SCLK        | out   | IOL15[A] | LVCMOS18 | 8     | UP        | NA        | NA         | OFF        | NA         | OFF             | NA            | 1.8  

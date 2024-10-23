@@ -34,7 +34,7 @@ architecture Behavioral of SPI_Master is
     -- SPI Stuff
     signal bit_cnt         : integer range 0 to 7 := 0;
     signal shift_reg    : STD_LOGIC_VECTOR(7 downto 0) := (others => '0');
-    signal data_mosi    : STD_LOGIC_VECTOR(7 downto 0) := "10001001";
+    signal data_mosi    : STD_LOGIC_VECTOR(7 downto 0) := "00000101";
     signal data_miso    : STD_LOGIC_VECTOR(7 downto 0) := (others => '0');
     signal cs_sig       : STD_LOGIC := '1';
     signal mosi_sig     : STD_LOGIC := '0';
@@ -55,7 +55,7 @@ begin
             prev_sclk_sig <= '1'; -- Initialisieren
             bit_cnt     <= 0;
             shift_reg   <= (others => '0');
-            data_mosi   <= (others => '0');
+            --data_mosi   <= (others => '0');
         
         elsif rising_edge(clk) then
             if counter >= MAX_COUNT then
@@ -89,6 +89,8 @@ begin
                     cs_sig      <= '0';
                     mosi_sig    <= data_mosi(7); --Sende MSB
                     bit_cnt <= 0;
+                    data_miso <= (others => '0');
+                    data_miso(0) <= MISO;
                     state   <= TRANSFER;
                 --SCLK geht nicht
                 --------------------------------------------
@@ -97,14 +99,16 @@ begin
                     cs_sig        <= '0';
                     if bit_cnt < 7 then
                         mosi_sig    <= data_mosi(6-bit_cnt);
-                        shift_reg   <= shift_reg(6 downto 0) & miso; -- letztes bit empfangen
-                        data_miso   <= shift_reg; -- empfangene daten Speichern
-                        
+                        --shift_reg   <= shift_reg(6 downto 0) & miso; -- letztes bit empfangen
+                        --data_miso   <= shift_reg(6-bit_cnt); -- empfangene daten Speichern
+                        data_miso(7-bit_cnt) <= MISO;
+
                         bit_cnt <= bit_cnt+1;
                         if bit_cnt > 6 then
                             cs_sig  <= '1';
                         end if;
                     else
+                        data_miso(0) <= MISO;
                         cs_sig  <= '1';
                         state   <= STOP;
                     end if;
@@ -112,6 +116,7 @@ begin
                 ---------------------------------------------
                 when STOP =>
                     STATUS_LED    <= '1'; --off
+                    data_mosi <= data_miso;
                     cs_sig  <= '1'; -- Slave deaktivieren
                     state <= IDLE;
                 

@@ -1,2 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Module name="SPI_Master" Register="31" Lut="50" T_Register="31(31)" T_Lut="50(50)"/>
+<Module name="SPI_Master" Register="47" Lut="75" T_Register="219(47)" T_Lut="254(75)" T_Bsram="2(0)">
+    <SubModule name="gw_gao_inst_0" Register="172" Lut="179" Bsram="2" T_Register="172(172)" T_Lut="179(179)" T_Bsram="2(2)"/>
+</Module>

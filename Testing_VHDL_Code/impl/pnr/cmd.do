@@ -4,6 +4,7 @@
 -cst C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\src\Testing_VHDL_Code.cst
 -cfg C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\impl\pnr\device.cfg
 -sdc C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\src\Testing_VHDL_Code.sdc
+-gao_crc 1101101001000011
 -bit
 -tr
 -ph
@@ -13,3 +14,4 @@
 -correct_hold 1
 -route_maxfan 23
 -global_freq 50.000
+-rtl_gao
