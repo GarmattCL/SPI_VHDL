@@ -28,8 +28,17 @@ Compiling module '**'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\data\ipcores\GAO_LITE\G
 Compiling module 'GW_JTAG'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\data\ipcores\gw_jtag.v":1)
 Compiling module 'gw_gao'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\impl\gwsynthesis\RTL_GAO\gw_gao_top.v":1)
 Processing 'SPI_Master(Behavioral)'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\src\Testing.vhd":5)
-'others' clause is never selected("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\src\Testing.vhd":126)
-WARN  (EX4160) : Latch inferred for net 'shift_reg[7]'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\src\Testing.vhd":138)
+WARN  (EX4206) : Using initial value for 'data_mosi' since it is never assigned("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\src\Testing.vhd":41)
+'others' clause is never selected("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\src\Testing.vhd":145)
+WARN  (EX4749) : 'state' should be on the sensitivity list of the process. Signal missing is added and assuming complete sensitivity list specified. RTL design and post-synthesis netlist simulations may differ as a result("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\src\Testing.vhd":161)
+WARN  (EX4749) : 'state' should be on the sensitivity list of the process. Signal missing is added and assuming complete sensitivity list specified. RTL design and post-synthesis netlist simulations may differ as a result("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\src\Testing.vhd":161)
+WARN  (EX4749) : 'state' should be on the sensitivity list of the process. Signal missing is added and assuming complete sensitivity list specified. RTL design and post-synthesis netlist simulations may differ as a result("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\src\Testing.vhd":161)
+WARN  (EX4749) : 'bit_cnt' should be on the sensitivity list of the process. Signal missing is added and assuming complete sensitivity list specified. RTL design and post-synthesis netlist simulations may differ as a result("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\src\Testing.vhd":161)
+WARN  (EX4749) : 'sclk_sig' should be on the sensitivity list of the process. Signal missing is added and assuming complete sensitivity list specified. RTL design and post-synthesis netlist simulations may differ as a result("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\src\Testing.vhd":164)
+WARN  (EX4749) : 'esc_state' should be on the sensitivity list of the process. Signal missing is added and assuming complete sensitivity list specified. RTL design and post-synthesis netlist simulations may differ as a result("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\src\Testing.vhd":168)
+'others' clause is never selected("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\src\Testing.vhd":232)
+WARN  (EX4387) : Incomplete sensitivity list specified, assuming completeness("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\src\Testing.vhd":235)
+WARN  (EX4160) : Latch inferred for net 'shift_reg[39]'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\src\Testing.vhd":235)
 Trying to combine GAO to RTL design
 NOTE  (EX0101) : Current top module is "SPI_Master"
 [5%] Running netlist conversion ...

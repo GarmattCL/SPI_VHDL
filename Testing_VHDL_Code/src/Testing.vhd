@@ -22,22 +22,34 @@ architecture Behavioral of SPI_Master is
     signal sclk_sig : STD_LOGIC := '1';  -- Geteilter Takt
     signal prev_sclk_sig : STD_LOGIC := '1';  -- Vorheriger Wert von sclk_sig
 
-    -- Parameter für den Clock Divider (z.B. blinkt SCLK bei 1 Hz, wenn sys_clk = 27 MHz)
+    -- Parameter für den Clock Divider
     constant CLOCK_FREQ    : integer := 27000000;  -- 27 MHz
-    constant sclk_sig_FREQ    : integer := 100;        -- SCLK blinkt bei 100 Hz
+    constant sclk_sig_FREQ    : integer := 100000;        -- SCLK blinkt bei 8MHz
     constant MAX_COUNT     : unsigned(23 downto 0) := to_unsigned(CLOCK_FREQ / (2 * sclk_sig_FREQ), 24); -- 13,500,000
 
-    -- States
+    ---------------------------------------------
+
+    -- SPI States
     type state_type is (IDLE, LAUNCH, TRANSFER, STOP);
     signal state    : state_type := IDLE;
 
     -- SPI Stuff
-    signal bit_cnt         : integer range 0 to 7 := 0;
-    signal shift_reg    : STD_LOGIC_VECTOR(7 downto 0) := (others => '0');
-    signal data_mosi    : STD_LOGIC_VECTOR(7 downto 0) := "00000101";
-    signal data_miso    : STD_LOGIC_VECTOR(7 downto 0) := (others => '0');
+    constant bit_length   : integer := 40;
+    signal bit_cnt         : integer range 0 to bit_length := 0;
+    signal launch_cnt   : integer range 0 to 10:= 0;
+    signal shift_reg    : STD_LOGIC_VECTOR(bit_length-1 downto 0) := (others => '0');
+    signal data_mosi    : STD_LOGIC_VECTOR(bit_length-1 downto 0) := "0000001101000001001100000000000000000000";
+    signal data_miso    : STD_LOGIC_VECTOR(bit_length-1 downto 0) := (others => '0');
     signal cs_sig       : STD_LOGIC := '1';
     signal mosi_sig     : STD_LOGIC := '0';
+
+    ---------------------------------------------
+
+    -- ESC States
+    type esc_state_type is (INIT, PREOP, BOOT, SAFEOP, OP);
+    signal esc_state    :   esc_state_type := INIT;
+
+    -- ESC Stuff
 
 begin
   
@@ -67,73 +79,158 @@ begin
             end if;
 
 -- Flankenerkennung
-            if (prev_sclk_sig = '0' and sclk_sig = '1') then -- Steigende Flanke von sclk_sig erkannt
+        if (prev_sclk_sig = '0' and sclk_sig = '1') then -- Steigende Flanke von sclk_sig erkannt
 
 -- SPI State Machine
             case state is
                 -------------------------------------------
                 when IDLE =>
+                    
                     STATUS_LED    <= '1'; --off
                     if launch_pin  = '0' then
                         cs_sig    <= '1'; -- Slave deaktivieren
                         --shift_reg       <= data_mosi;
                         bit_cnt         <= 0;
+                        launch_cnt <= 0;
                         state           <= LAUNCH;
                     end if;
-                --SLCK geht nicht
                 
                 --------------------------------------------
                 when LAUNCH =>
+
                     
-                    STATUS_LED    <= '1'; --off
-                    cs_sig      <= '0';
-                    mosi_sig    <= data_mosi(7); --Sende MSB
-                    bit_cnt <= 0;
-                    data_miso <= (others => '0');
-                    data_miso(0) <= MISO;
-                    state   <= TRANSFER;
-                --SCLK geht nicht
+                    STATUS_LED    <= '1';           --LED off
+                    cs_sig      <= '0';             --Slave aktivieren
+                    --mosi_sig    <= data_mosi(39);   --Sende MSB
+                    data_miso <= (others => '0');   --Reset MISO
+                    --data_miso(0) <= MISO;           --MISO MSB einlesen
+                    
+                    launch_cnt <= launch_cnt+1;
+                    bit_cnt <= 0;                   --Bit Counter nullen
+                    
+                    if(launch_cnt = 2) then
+                        state   <= TRANSFER;            --State Change
+                    end if;
+                
                 --------------------------------------------
                 when TRANSFER =>
-                    STATUS_LED    <= '0'; --on
-                    cs_sig        <= '0';
-                    if bit_cnt < 7 then
-                        mosi_sig    <= data_mosi(6-bit_cnt);
-                        --shift_reg   <= shift_reg(6 downto 0) & miso; -- letztes bit empfangen
-                        --data_miso   <= shift_reg(6-bit_cnt); -- empfangene daten Speichern
-                        data_miso(7-bit_cnt) <= MISO;
-
-                        bit_cnt <= bit_cnt+1;
-                        if bit_cnt > 6 then
-                            cs_sig  <= '1';
+                    
+                    STATUS_LED    <= '0';           --on
+                    cs_sig        <= '0';           --Slave aktiv
+                    if bit_cnt < bit_length then
+                        mosi_sig    <= data_mosi(bit_length-1-bit_cnt);   --MOSI Ausgabe
+                        data_miso(bit_length-bit_cnt) <= MISO;          --MISO Einlesen
+                        bit_cnt <= bit_cnt+1;                   --Bit Counter inkrementieren
+                        if bit_cnt > bit_length-1 then
+                            cs_sig  <= '0';                     --ggf. Slave deaktivieren
                         end if;
                     else
-                        data_miso(0) <= MISO;
-                        cs_sig  <= '1';
-                        state   <= STOP;
+                        data_miso(0) <= MISO;                   --MISO LSB Einlesen
+                        cs_sig  <= '1';                         --Slave deaktivieren
+                        state   <= STOP;                        --State Change
                     end if;
                 
                 ---------------------------------------------
                 when STOP =>
-                    STATUS_LED    <= '1'; --off
-                    data_mosi <= data_miso;
-                    cs_sig  <= '1'; -- Slave deaktivieren
-                    state <= IDLE;
+                    
+                    STATUS_LED    <= '1';       --off
+                    -- data_mosi <= data_miso;     --Testing: Daten im Kreis schicken
+                    cs_sig  <= '1';             --Slave deaktivieren
+                    state <= IDLE;              --State Change    
                 
-                ---------------------------------------------
+                ---------------------------------------------   
                 when others =>
-                    STATUS_LED    <= '1'; --off
-                    state <= IDLE;
+                    
+                    STATUS_LED    <= '1';   --off
+                    state <= IDLE;          --State Change
                 end case;
             end if;
 
+            
+            
             -- Speichern des vorherigen Zustands von sclk_sig
             prev_sclk_sig <= sclk_sig;
 
-            -- SCLK blinkt basierend auf sclk_sig
-            SCLK    <= sclk_sig;
+            -- SPI Output Steuerung
             CS      <= cs_sig;
             MOSI    <= mosi_sig;
+            
+            
+
         end if;
+        if (state = STOP) or (state = IDLE) or (state = LAUNCH) or (bit_cnt = 0) then
+            SCLK    <= '1';
+        else
+            SCLK    <= not sclk_sig;
+        end if;
+
+-- ESC State Machine
+        case esc_state is
+            ---------------------------------------------
+            when INIT =>
+            -- INIT -> PREOP
+                -- start mailbox
+            -- INIT -> OP (ALARM)
+                -- invalid state change
+                -- escstate = INIT;
+            ---------------------------------------------
+            when PREOP =>
+            -- PREOP -> INIT
+                -- stop mailbox
+                -- escstate = INIT;
+            -- PREOP -> OP
+                -- invalid state change
+                --escstate = PREOP;
+            ---------------------------------------------
+            when BOOT =>
+            -- BOOT -> BOOT
+                -- start mailbox boot
+            -- BOOT -> INIT
+                -- stop mailbox
+                -- escstate = INIT;
+            -- BOOT -> OP
+                -- invalid state change
+                -- escstate = BOOT;
+            ---------------------------------------------
+            when SAFEOP =>
+            -- SAFEOP -> INIT
+                -- stop input
+                -- stop mailbox
+                -- escstate = INIT;
+            -- SAFEOP -> SAFEOP
+                -- bissele Komplex nochmal anschauen
+            -- SAFEOP -> PREOP
+                -- stop input
+                -- escstate = PREOP;
+            -- SAFEOP -> BOOT
+                -- invalid state change
+                -- escstate = SAFEOP;
+            -- SAFEOP -> OP
+                -- start output
+                -- escstate = OP;
+            ---------------------------------------------
+            when OP =>
+            -- OP -> OP
+                -- BREAK
+            -- OP -> INIT
+                -- stop output
+                -- stop input
+                -- stop mailbox
+                -- escstate = INIT;
+            -- OP -> PREOP
+                -- stop output
+                -- stop input
+                --escstate = PREOP;
+            -- OP -> BOOT
+                -- invalid state change
+                -- stop output 
+                -- escstate = SAFEOP;
+            -- OP -> SAFEOP
+                -- stop output
+                -- escstate = SAFEOP;
+            ---------------------------------------------
+            when others => 
+            -- unknown state
+        end case;
     end process;
 end Behavioral;
