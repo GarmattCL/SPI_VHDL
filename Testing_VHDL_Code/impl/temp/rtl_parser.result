@@ -5,6 +5,16 @@
   "InstName" : "SPI_Master",
   "ModuleFile" : "C:/Gowin/Gowin_V1.9.10.02_x64/IDE/bin/Documents/Testing_VHDL_Code/src/Testing.vhd",
   "ModuleLine" : 5,
-  "ModuleName" : "SPI_Master"
+  "ModuleName" : "SPI_Master",
+  "SubInsts" : [
+   {
+    "InstFile" : "C:/Gowin/Gowin_V1.9.10.02_x64/IDE/bin/Documents/Testing_VHDL_Code/src/Testing.vhd",
+    "InstLine" : 56,
+    "InstName" : "oscillator",
+    "ModuleFile" : "C:/Gowin/Gowin_V1.9.10.02_x64/IDE/bin/Documents/Testing_VHDL_Code/src/gowin_osc/gowin_osc.vhd",
+    "ModuleLine" : 13,
+    "ModuleName" : "Gowin_OSC"
+   }
+  ]
  }
 ]

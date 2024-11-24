@@ -7,8 +7,7 @@ Running placement......
 [10%] Placement Phase 0 completed
 [20%] Placement Phase 1 completed
 [30%] Placement Phase 2 completed
-WARN  (TA1132) :  'clk' was determined to be a clock but was not created.
-WARN  (TA1132) :  'tck_pad_i' was determined to be a clock but was not created.
+WARN  (TA1132) :  'sclk_sig' was determined to be a clock but was not created.
 [50%] Placement Phase 3 completed
 Running routing......
 [60%] Routing Phase 0 completed
@@ -27,5 +26,5 @@ Generate file "C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code
 Generate file "C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\impl\pnr\Testing_VHDL_Code.rpt.html" completed
 Generate file "C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\impl\pnr\Testing_VHDL_Code.rpt.txt" completed
 Generate file "C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\impl\pnr\Testing_VHDL_Code.tr.html" completed
-Mon Nov 18 12:02:27 2024
+Sun Nov 24 17:42:04 2024
 

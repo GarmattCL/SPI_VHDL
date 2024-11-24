@@ -6,8 +6,7 @@
     <Device name="GW1N-9C" pn="GW1N-LV9QN88C6/I5">gw1n9c-009</Device>
     <FileList>
         <File path="src/Testing.vhd" type="file.vhdl" enable="1"/>
+        <File path="src/gowin_osc/gowin_osc.vhd" type="file.vhdl" enable="1"/>
         <File path="src/Testing_VHDL_Code.cst" type="file.cst" enable="1"/>
-        <File path="src/Testing_VHDL_Code.sdc" type="file.sdc" enable="1"/>
-        <File path="src/Testing_VHDL_Code.rao" type="file.gao" enable="1"/>
     </FileList>
 </Project>
