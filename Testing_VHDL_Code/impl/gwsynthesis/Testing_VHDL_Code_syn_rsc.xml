@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Module name="SPI_Master" Register="24" Lut="63" T_Register="24(24)" T_Lut="63(63)">
+<Module name="Top_Level" T_Register="49(0)" T_Lut="93(0)">
     <SubModule name="oscillator"/>
+    <SubModule name="button_debouncer_inst" Register="22" Lut="38" T_Register="22(22)" T_Lut="38(38)"/>
+    <SubModule name="spi_master_inst" Register="23" Lut="50" T_Register="23(23)" T_Lut="50(50)"/>
+    <SubModule name="ethercat_sm_inst" Register="4" Lut="5" T_Register="4(4)" T_Lut="5(5)"/>
 </Module>

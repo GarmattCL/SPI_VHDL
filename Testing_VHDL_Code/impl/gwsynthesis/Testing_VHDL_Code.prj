@@ -4,8 +4,11 @@
     <Version>beta</Version>
     <Device id="GW1N-9C" package="QFN88" speed="6" partNumber="GW1N-LV9QN88C6/I5"/>
     <FileList>
-        <File path="C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\src\Testing.vhd" type="vhdl"/>
         <File path="C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\src\gowin_osc\gowin_osc.vhd" type="vhdl"/>
+        <File path="C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\src\EtherCatSM.vhd" type="vhdl"/>
+        <File path="C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\src\SPI_Master.vhd" type="vhdl"/>
+        <File path="C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\src\Top_Level.vhd" type="vhdl"/>
+        <File path="C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\src\Button_Debouncer.vhd" type="vhdl"/>
     </FileList>
     <OptionList>
         <Option type="disable_insert_pad" value="0"/>
