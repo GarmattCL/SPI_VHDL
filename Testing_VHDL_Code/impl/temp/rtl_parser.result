@@ -9,7 +9,7 @@
   "SubInsts" : [
    {
     "InstFile" : "C:/Gowin/Gowin_V1.9.10.02_x64/IDE/bin/Documents/Testing_VHDL_Code/src/Top_Level.vhd",
-    "InstLine" : 79,
+    "InstLine" : 84,
     "InstName" : "oscillator",
     "ModuleFile" : "C:/Gowin/Gowin_V1.9.10.02_x64/IDE/bin/Documents/Testing_VHDL_Code/src/gowin_osc/gowin_osc.vhd",
     "ModuleLine" : 13,
@@ -17,7 +17,7 @@
    },
    {
     "InstFile" : "C:/Gowin/Gowin_V1.9.10.02_x64/IDE/bin/Documents/Testing_VHDL_Code/src/Top_Level.vhd",
-    "InstLine" : 85,
+    "InstLine" : 90,
     "InstName" : "button_debouncer_inst",
     "ModuleFile" : "C:/Gowin/Gowin_V1.9.10.02_x64/IDE/bin/Documents/Testing_VHDL_Code/src/Button_Debouncer.vhd",
     "ModuleLine" : 5,
@@ -25,7 +25,7 @@
    },
    {
     "InstFile" : "C:/Gowin/Gowin_V1.9.10.02_x64/IDE/bin/Documents/Testing_VHDL_Code/src/Top_Level.vhd",
-    "InstLine" : 94,
+    "InstLine" : 98,
     "InstName" : "spi_master_inst",
     "ModuleFile" : "C:/Gowin/Gowin_V1.9.10.02_x64/IDE/bin/Documents/Testing_VHDL_Code/src/SPI_Master.vhd",
     "ModuleLine" : 5,
@@ -33,7 +33,7 @@
    },
    {
     "InstFile" : "C:/Gowin/Gowin_V1.9.10.02_x64/IDE/bin/Documents/Testing_VHDL_Code/src/Top_Level.vhd",
-    "InstLine" : 110,
+    "InstLine" : 115,
     "InstName" : "ethercat_sm_inst",
     "ModuleFile" : "C:/Gowin/Gowin_V1.9.10.02_x64/IDE/bin/Documents/Testing_VHDL_Code/src/EtherCatSM.vhd",
     "ModuleLine" : 5,

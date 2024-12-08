@@ -3,7 +3,7 @@
  "Files" : [
   {
    "Library" : "work",
-   "Path" : "C:/Gowin/Gowin_V1.9.10.02_x64/IDE/bin/Documents/Testing_VHDL_Code/src/gowin_osc/gowin_osc.vhd",
+   "Path" : "C:/Gowin/Gowin_V1.9.10.02_x64/IDE/bin/Documents/Testing_VHDL_Code/src/Button_Debouncer.vhd",
    "Type" : "vhdl"
   },
   {
@@ -23,7 +23,7 @@
   },
   {
    "Library" : "work",
-   "Path" : "C:/Gowin/Gowin_V1.9.10.02_x64/IDE/bin/Documents/Testing_VHDL_Code/src/Button_Debouncer.vhd",
+   "Path" : "C:/Gowin/Gowin_V1.9.10.02_x64/IDE/bin/Documents/Testing_VHDL_Code/src/gowin_osc/gowin_osc.vhd",
    "Type" : "vhdl"
   }
  ],

@@ -5,7 +5,6 @@ use IEEE.NUMERIC_STD.ALL;
 entity Button_Debouncer is
     Port (
         clk         : in  STD_LOGIC;
-        reset       : in  STD_LOGIC;
         button_in   : in  STD_LOGIC;
         button_out  : out STD_LOGIC
     );
@@ -17,26 +16,25 @@ architecture Behavioral of Button_Debouncer is
     signal button_last   : STD_LOGIC := '0';
 begin
 
-    process(clk, reset)
+    process(clk)
     begin
-        if reset = '0' then
-            counter <= (others => '0');
-            button_stable <= '0';
-            button_last <= '0';
-        elsif rising_edge(clk) then
+        
+        if rising_edge(clk) then
             if button_in /= button_last then
                 counter <= (others => '0'); -- Reset Counter, wenn sich der Button ändert
             else
                 if counter = "11111111111111111111" then -- Warten, bis stabil
                     button_stable <= button_in;
+                    counter <= (others => '0');
                 else
                     counter <= counter + 1;
                 end if;
+
             end if;
             button_last <= button_in;
         end if;
     end process;
 
-    button_out <= button_stable;
+    button_out <= button_in;
 
 end Behavioral;
