@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Module name="Top_Level" T_Register="29(0)" T_Lut="68(0)">
+<Module name="Top_Level" T_Register="92(0)" T_Alu="62(0)" T_Lut="94(0)">
     <SubModule name="oscillator"/>
-    <SubModule name="spi_master_inst" Register="24" Lut="61" T_Register="24(24)" T_Lut="61(61)"/>
-    <SubModule name="ethercat_sm_inst" Register="5" Lut="7" T_Register="5(5)" T_Lut="7(7)"/>
+    <SubModule name="spi_master_inst" Register="56" Alu="31" Lut="78" T_Register="56(56)" T_Alu="31(31)" T_Lut="78(78)"/>
+    <SubModule name="ethercat_sm_inst" Register="36" Alu="31" Lut="16" T_Register="36(36)" T_Alu="31(31)" T_Lut="16(16)"/>
 </Module>

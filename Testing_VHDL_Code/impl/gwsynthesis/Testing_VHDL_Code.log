@@ -19,9 +19,9 @@ Processing 'Top_Level(Behavioral)'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Docume
 Processing 'Gowin_OSC(Behavioral)'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\src\gowin_osc\gowin_osc.vhd":13)
 Processing 'Button_Debouncer(Behavioral)'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\src\Button_Debouncer.vhd":5)
 Processing 'SPI_Master(Behavioral)'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\src\SPI_Master.vhd":5)
-'others' clause is never selected("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\src\SPI_Master.vhd":113)
+'others' clause is never selected("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\src\SPI_Master.vhd":122)
 Processing 'EtherCAT_StateMachine(Behavioral)'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\src\EtherCatSM.vhd":5)
-'others' clause is never selected("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\src\EtherCatSM.vhd":65)
+'others' clause is never selected("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\src\EtherCatSM.vhd":71)
 NOTE  (EX0101) : Current top module is "Top_Level"
 WARN  (EX0211) : The output port "STATUS_LED3" of module "Top_Level" has no driver, assigning undriven bits to Z, simulation mismatch possible("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\src\Top_Level.vhd":14)
 [5%] Running netlist conversion ...

@@ -33,6 +33,7 @@ architecture Behavioral of SPI_Master is
     signal mosi_sig    : STD_LOGIC := '0';
     signal bit_cnt     : integer range 0 to 63 := 0;
     signal spi_ready_sig    : STD_LOGIC := '1';
+    signal stop_counter : integer := 0;
 
     type state_type is (IDLE, SETUP, SEND_COMMAND, SEND_ADDRESS, TRANSFER_DATA, STOP);
     signal state : state_type := IDLE;
@@ -61,10 +62,13 @@ begin
             case state is
 ---------------------------------------------------------------------
                 when IDLE =>
-                    spi_ready_sig <= '0';
+                    
                     if launch_pin = '1' then
+                        spi_ready_sig <= '0';
                         bit_cnt <= 0;
                         state <= SETUP;
+                    else
+                        spi_ready_sig <= '1';
                     end if;
 ---------------------------------------------------------------------
                 when SETUP =>
@@ -106,8 +110,13 @@ begin
 ---------------------------------------------------------------------
                 when STOP =>
                     cs_sig <= '1';
-                    spi_ready_sig <= '0';
-                    state <= IDLE;
+                    if stop_counter > 100 then
+                        spi_ready_sig <= '1';
+                        state <= IDLE;
+                        stop_counter <= 0;
+                    else
+                        stop_counter <= stop_counter + 1;
+                    end if;
 ---------------------------------------------------------------------
                 when others =>
                     state <= IDLE;

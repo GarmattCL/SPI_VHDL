@@ -18,10 +18,11 @@ end EtherCAT_StateMachine;
 
 architecture Behavioral of EtherCAT_StateMachine is
     signal spi_launch_sig   : STD_LOGIC := '0';
+    signal counter          : integer := 0;
     
 
-    type ethercat_state_type is (EC_INIT, EC_PREOP, EC_SAFEOP, EC_OP, EC_ERROR);
-    signal ec_state : ethercat_state_type := EC_INIT;
+    type ethercat_state_type is (EC_TEST, EC_STATE_REQUEST);
+    signal ec_state : ethercat_state_type := EC_TEST;
 
 begin
     process(clk, spi_request, spi_ready)
@@ -29,40 +30,45 @@ begin
         if rising_edge(clk) then
             case ec_state is
 ---------------------------------------------------------------------
-                when EC_INIT =>
+                when EC_TEST =>
                     spi_command <= "00000011"; -- Read command
                     spi_address <= "1000000001100100"; -- Example address
                     spi_data_out <="00000000000000000000000000000000"; --Example data
                     spi_data_length <= 32;
-                    
                     if (spi_request = '0') then
                         spi_launch_sig <= '1';
-                        if spi_ready = '1' then
-                            ec_state <= EC_PREOP;
+                        counter <= counter + 1;
+                        if spi_ready = '1' and counter > 10000 then
+                            ec_state <= EC_STATE_REQUEST;
+                            counter <= 0;
+                            spi_launch_sig <= '0';
                         end if;
+                    else
+                    spi_launch_sig <= '0';
                     end if;
 ---------------------------------------------------------------------
-                when EC_PREOP =>
+                when EC_STATE_REQUEST =>
                     -- Add operational logic
-                spi_launch_sig <= '0';
-                    ec_state <= EC_SAFEOP;
----------------------------------------------------------------------
-                when EC_SAFEOP =>
-                    -- Add further logic here
+                    spi_command <= "00000011"; -- Read command
+                    spi_address <= "1000000101000000"; -- Example address
+                    spi_data_out <="00000000000000000000000000000000"; --Example data
+                    spi_data_length <= 16;
+                    if (spi_request = '0') then
+                        spi_launch_sig <= '1';
+                        counter <= counter + 1;
+                        if spi_ready = '1' and counter > 10000 then
+                            ec_state <= EC_TEST;
+                            counter <= 0;
+                            spi_launch_sig <= '0';
+                        end if;
+                    else
                     spi_launch_sig <= '0';
-                ec_state <= EC_OP;
+                    end if;
 ---------------------------------------------------------------------
-                when EC_OP =>
-                    -- Add operational logic
-                    spi_launch_sig <= '1';
-                ec_state <= EC_ERROR;
----------------------------------------------------------------------
-                when EC_ERROR =>
-                    -- Add operational logic
-                    -- ec_state <= EC_INIT;
+                
 ---------------------------------------------------------------------
                 when others =>
-                    ec_state <= EC_INIT;
+                    ec_state <= EC_TEST;
             end case;
         end if;
     end process;
