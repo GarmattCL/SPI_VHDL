@@ -12,27 +12,27 @@
   <Part Number>: GW1N-LV9QN88C6/I5
   <Device>: GW1N-9
   <Device Version>: C
-  <Created Time>:Mon Dec  9 11:03:14 2024
+  <Created Time>:Mon Dec  9 12:01:33 2024
 
 
 2. PnR Details
 
   Running placement:
-    Placement Phase 0: CPU time = 0h 0m 0.01s, Elapsed time = 0h 0m 0.01s
-    Placement Phase 1: CPU time = 0h 0m 0.077s, Elapsed time = 0h 0m 0.077s
-    Placement Phase 2: CPU time = 0h 0m 0.008s, Elapsed time = 0h 0m 0.008s
+    Placement Phase 0: CPU time = 0h 0m 0.012s, Elapsed time = 0h 0m 0.012s
+    Placement Phase 1: CPU time = 0h 0m 0.074s, Elapsed time = 0h 0m 0.074s
+    Placement Phase 2: CPU time = 0h 0m 0.017s, Elapsed time = 0h 0m 0.018s
     Placement Phase 3: CPU time = 0h 0m 1s, Elapsed time = 0h 0m 1s
     Total Placement: CPU time = 0h 0m 1s, Elapsed time = 0h 0m 1s
  Running routing:
-    Routing Phase 0: CPU time = 0h 0m 0s, Elapsed time = 0h 0m 0s
-    Routing Phase 1: CPU time = 0h 0m 0.158s, Elapsed time = 0h 0m 0.157s
-    Routing Phase 2: CPU time = 0h 0m 0.115s, Elapsed time = 0h 0m 0.115s
+    Routing Phase 0: CPU time = 0h 0m 0.001s, Elapsed time = 0h 0m 0s
+    Routing Phase 1: CPU time = 0h 0m 0.153s, Elapsed time = 0h 0m 0.154s
+    Routing Phase 2: CPU time = 0h 0m 0.132s, Elapsed time = 0h 0m 0.132s
     Routing Phase 3: CPU time = 0h 0m 0s, Elapsed time = 0h 0m 0s
-    Total Routing: CPU time = 0h 0m 0.273s, Elapsed time = 0h 0m 0.272s
+    Total Routing: CPU time = 0h 0m 0.286s, Elapsed time = 0h 0m 0.286s
  Generate output files:
-    CPU time = 0h 0m 0.996s, Elapsed time = 0h 0m 0.997s
+    CPU time = 0h 0m 0.996s, Elapsed time = 0h 0m 0.996s
 
- Total Time and Memory Usage: CPU time = 0h 0m 2s, Elapsed time = 0h 0m 2s, Peak memory usage = 266MB
+ Total Time and Memory Usage: CPU time = 0h 0m 3s, Elapsed time = 0h 0m 3s, Peak memory usage = 266MB
 
 
 3. Resource Usage Summary
@@ -40,19 +40,19 @@
   ----------------------------------------------------------
   Resources                   | Usage
   ----------------------------------------------------------
-  Logic                       | 155/8640  2%
-    --LUT,ALU,ROM16           | 155(91 LUT, 64 ALU, 0 ROM16)
-    --SSRAM(RAM16)            | 0
-  Register                    | 92/6693  2%
+  Logic                       | 195/8640  3%
+    --LUT,ALU,ROM16           | 183(109 LUT, 74 ALU, 0 ROM16)
+    --SSRAM(RAM16)            | 2
+  Register                    | 93/6693  2%
     --Logic Register as Latch | 0/6480  0%
     --Logic Register as FF    | 91/6480  2%
     --I/O Register as Latch   | 0/213  0%
-    --I/O Register as FF      | 1/213  <1%
-  CLS                         | 87/4320  3%
-  I/O Port                    | 8
-  I/O Buf                     | 7
-    --Input Buf               | 1
-    --Output Buf              | 6
+    --I/O Register as FF      | 2/213  <1%
+  CLS                         | 111/4320  3%
+  I/O Port                    | 9
+  I/O Buf                     | 9
+    --Input Buf               | 2
+    --Output Buf              | 7
     --Inout Buf               | 0
   IOLOGIC                     | 0%
   BSRAM                       | 0%
@@ -76,7 +76,7 @@
   I/O Bank  | Usage       
   -----------------------
   bank 1   | 0/25(0%)    
-  bank 2   | 4/23(17%)   
+  bank 2   | 5/23(21%)   
   bank 3   | 4/23(17%)   
   =======================
 
@@ -118,6 +118,7 @@ CS           |           | 25/2          | Y          | out   | IOB8[A]  | LVCMO
 STATUS_LED   |           | 11/3          | Y          | out   | IOL15[A] | LVCMOS33   | 8     | UP        | NA        | NA         | OFF        | NA         | OFF             | NA            | 3.3       
 STATUS_LED2  |           | 14/3          | Y          | out   | IOL22[B] | LVCMOS33   | 8     | UP        | NA        | NA         | OFF        | NA         | OFF             | NA            | 3.3       
 STATUS_LED3  |           | 16/3          | Y          | out   | IOL26[B] | LVCMOS33   | 8     | UP        | NA        | NA         | OFF        | NA         | OFF             | NA            | 3.3       
+TEST_OUT     |           | 29/2          | Y          | out   | IOB13[A] | LVCMOS33   | 8     | UP        | NA        | NA         | OFF        | NA         | NA              | NA            | 3.3       
 ====================================================================================================================================================================================================================
 
 
@@ -157,7 +158,7 @@ Loc./Bank| Signal       | Dir.  | Site     | IO Type  | Drive | Pull Mode | PCI 
 26/2     | MISO         | in    | IOB8[B]  | LVCMOS33 | NA    | UP        | ON        | HIGH       | NA         | NA         | NA              | NA            | 3.3  
 27/2     | MOSI         | out   | IOB11[A] | LVCMOS33 | 8     | NONE      | NA        | NA         | OFF        | NA         | NA              | NA            | 3.3  
 28/2     | SCLK         | out   | IOB11[B] | LVCMOS33 | 8     | NONE      | NA        | NA         | OFF        | NA         | NA              | NA            | 3.3  
-29/2     | -            | in    | IOB13[A] | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | NA         | NA              | NA            | 3.3  
+29/2     | TEST_OUT     | out   | IOB13[A] | LVCMOS33 | 8     | UP        | NA        | NA         | OFF        | NA         | NA              | NA            | 3.3  
 30/2     | -            | in    | IOB13[B] | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | NA         | NA              | NA            | 3.3  
 31/2     | -            | in    | IOB17[A] | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | NA         | NA              | NA            | 3.3  
 32/2     | -            | in    | IOB17[B] | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | NA         | NA              | NA            | 3.3  

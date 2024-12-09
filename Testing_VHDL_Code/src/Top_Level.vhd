@@ -11,7 +11,8 @@ entity Top_Level is
         CS          : out STD_LOGIC;       -- SPI Chip Select
         STATUS_LED  : out STD_LOGIC;        -- Status-LED
         STATUS_LED2 : out STD_LOGIC;
-        STATUS_LED3 : out STD_LOGIC
+        STATUS_LED3 : out STD_LOGIC;
+        TEST_OUT    : out STD_LOGIC
     );
 end Top_Level;
 
@@ -59,7 +60,8 @@ architecture Behavioral of Top_Level is
             STATUS_LED  : out STD_LOGIC;
             STATUS_LED2  : out STD_LOGIC;
             STATUS_LED3  : out STD_LOGIC;
-            data_length : in integer
+            data_length : in integer;
+            TEST_OUT    : out STD_LOGIC
         );
     end component;
 
@@ -108,7 +110,8 @@ begin
             address     => spi_address,
             data_out    => spi_data_out,
             STATUS_LED  => STATUS_LED,
-            data_length => spi_data_length
+            data_length => spi_data_length,
+            TEST_OUT    => TEST_OUT
         );
 
     -- Instanzierung der EtherCAT State Machine

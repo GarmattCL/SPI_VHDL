@@ -8,10 +8,10 @@ Analyzing entity 'ethercat_statemachine'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\
 Analyzing architecture 'behavioral'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\src\EtherCatSM.vhd":19)
 Analyzing VHDL file 'C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\src\SPI_Master.vhd'
 Analyzing entity 'spi_master'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\src\SPI_Master.vhd":5)
-Analyzing architecture 'behavioral'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\src\SPI_Master.vhd":22)
+Analyzing architecture 'behavioral'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\src\SPI_Master.vhd":23)
 Analyzing VHDL file 'C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\src\Top_Level.vhd'
 Analyzing entity 'top_level'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\src\Top_Level.vhd":5)
-Analyzing architecture 'behavioral'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\src\Top_Level.vhd":18)
+Analyzing architecture 'behavioral'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\src\Top_Level.vhd":19)
 Analyzing VHDL file 'C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\src\gowin_osc\gowin_osc.vhd'
 Analyzing entity 'gowin_osc'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\src\gowin_osc\gowin_osc.vhd":13)
 Analyzing architecture 'behavioral'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\src\gowin_osc\gowin_osc.vhd":19)
@@ -19,13 +19,12 @@ Processing 'Top_Level(Behavioral)'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Docume
 Processing 'Gowin_OSC(Behavioral)'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\src\gowin_osc\gowin_osc.vhd":13)
 Processing 'Button_Debouncer(Behavioral)'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\src\Button_Debouncer.vhd":5)
 Processing 'SPI_Master(Behavioral)'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\src\SPI_Master.vhd":5)
-'others' clause is never selected("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\src\SPI_Master.vhd":122)
+'others' clause is never selected("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\src\SPI_Master.vhd":132)
 Processing 'EtherCAT_StateMachine(Behavioral)'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\src\EtherCatSM.vhd":5)
 'others' clause is never selected("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\src\EtherCatSM.vhd":71)
 NOTE  (EX0101) : Current top module is "Top_Level"
 WARN  (EX0211) : The output port "STATUS_LED3" of module "Top_Level" has no driver, assigning undriven bits to Z, simulation mismatch possible("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\src\Top_Level.vhd":14)
 [5%] Running netlist conversion ...
-WARN  (CV0016) : Input MISO is unused("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\src\Top_Level.vhd":10)
 Running device independent optimization ...
 [10%] Optimizing Phase 0 completed
 [15%] Optimizing Phase 1 completed
@@ -41,7 +40,7 @@ Running technical mapping ...
 [75%] Tech-Mapping Phase 2 completed
 [80%] Tech-Mapping Phase 3 completed
 [90%] Tech-Mapping Phase 4 completed
-WARN  (NL0002) : The module "Button_Debouncer" instantiated to "button_debouncer_inst" is swept in optimizing("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\src\Top_Level.vhd":90)
+WARN  (NL0002) : The module "Button_Debouncer" instantiated to "button_debouncer_inst" is swept in optimizing("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\src\Top_Level.vhd":92)
 [95%] Generate netlist file "C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\impl\gwsynthesis\Testing_VHDL_Code.vg" completed
 [100%] Generate report file "C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\Testing_VHDL_Code\impl\gwsynthesis\Testing_VHDL_Code_syn.rpt.html" completed
 GowinSynthesis finish

@@ -15,7 +15,8 @@ entity SPI_Master is
         address     : in  STD_LOGIC_VECTOR(15 downto 0); -- SPI Address
         data_out    : in  STD_LOGIC_VECTOR(31 downto 0); -- SPI Data
         STATUS_LED  : out STD_LOGIC;     -- Statusanzeige
-        data_length : in integer
+        data_length : in integer;
+        TEST_OUT    : out STD_LOGIC
     );
 end SPI_Master;
 
@@ -34,6 +35,8 @@ architecture Behavioral of SPI_Master is
     signal bit_cnt     : integer range 0 to 63 := 0;
     signal spi_ready_sig    : STD_LOGIC := '1';
     signal stop_counter : integer := 0;
+    signal data_in      : STD_LOGIC_VECTOR(31 downto 0) := (others => '0');
+    signal test_sig     : STD_LOGIC := '0';
 
     type state_type is (IDLE, SETUP, SEND_COMMAND, SEND_ADDRESS, TRANSFER_DATA, STOP);
     signal state : state_type := IDLE;
@@ -102,14 +105,21 @@ begin
                     spi_ready_sig <= '0';
                     if bit_cnt < data_length-1 then
                         mosi_sig <= data_out(data_length-1 - bit_cnt);
+                        data_in(data_length-bit_cnt) <= MISO;
                         bit_cnt <= bit_cnt + 1;
                     else
                         mosi_sig <= data_out(data_length-1 - bit_cnt);
+                        data_in(data_length-bit_cnt) <= MISO;
                         state <= STOP;
                     end if;
 ---------------------------------------------------------------------
                 when STOP =>
                     cs_sig <= '1';
+                    
+                    if stop_counter < data_length then
+                        test_sig <= data_in(data_length-stop_counter);
+                    end if;
+
                     if stop_counter > 100 then
                         spi_ready_sig <= '1';
                         state <= IDLE;
@@ -130,4 +140,5 @@ begin
     CS          <= cs_sig; 
     STATUS_LED  <= not spi_ready_sig; -- LED an, wenn SPI ready
     spi_ready   <= spi_ready_sig;
+    TEST_OUT    <= test_sig;
 end Behavioral;

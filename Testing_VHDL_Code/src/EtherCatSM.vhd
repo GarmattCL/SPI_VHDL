@@ -50,7 +50,7 @@ begin
                 when EC_STATE_REQUEST =>
                     -- Add operational logic
                     spi_command <= "00000011"; -- Read command
-                    spi_address <= "1000000101000000"; -- Example address
+                    spi_address <= "0000000100100000"; -- Example address
                     spi_data_out <="00000000000000000000000000000000"; --Example data
                     spi_data_length <= 16;
                     if (spi_request = '0') then
