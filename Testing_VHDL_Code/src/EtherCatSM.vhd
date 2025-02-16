@@ -31,10 +31,10 @@ begin
             case ec_state is
 ---------------------------------------------------------------------
                 when EC_TEST =>
-                    spi_command <= "00000011"; -- Read command
-                    spi_address <= "1000000001100100"; -- Example address
-                    spi_data_out <="00000000000000000000000000000000"; --Example data
-                    spi_data_length <= 32;
+                    spi_command <= "00001001"; -- Read command
+                    spi_address <= "0000001000000000"; -- Example address
+                    spi_data_out <="00000000000000000000000011111111"; --Example data
+                    spi_data_length <= 8;
                     if (spi_request = '0') then
                         spi_launch_sig <= '1';
                         counter <= counter + 1;
@@ -49,21 +49,21 @@ begin
 ---------------------------------------------------------------------
                 when EC_STATE_REQUEST =>
                     -- Add operational logic
-                    spi_command <= "00000011"; -- Read command
-                    spi_address <= "0000000100100000"; -- Example address
-                    spi_data_out <="00000000000000000000000000000000"; --Example data
-                    spi_data_length <= 16;
-                    if (spi_request = '0') then
-                        spi_launch_sig <= '1';
-                        counter <= counter + 1;
-                        if spi_ready = '1' and counter > 10000 then
+                    --spi_command <= "00000011"; -- Read command
+                    --spi_address <= "0000000100100000"; -- Example address
+                    --spi_data_out <="00000000000000000000000000000000"; --Example data
+                    --spi_data_length <= 16;
+                    --if (spi_request = '0') then
+                    --    spi_launch_sig <= '1';
+                    --    counter <= counter + 1;
+                    --    if spi_ready = '1' and counter > 10000 then
                             ec_state <= EC_TEST;
-                            counter <= 0;
-                            spi_launch_sig <= '0';
-                        end if;
-                    else
-                    spi_launch_sig <= '0';
-                    end if;
+                    --        counter <= 0;
+                    --        spi_launch_sig <= '0';
+                    --    end if;
+                    --else
+                    --spi_launch_sig <= '0';
+                    --end if;
 ---------------------------------------------------------------------
                 
 ---------------------------------------------------------------------

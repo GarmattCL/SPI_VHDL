@@ -99,25 +99,30 @@ begin
                         mosi_sig <= address(ADDR_LENGTH-1-bit_cnt);
                         bit_cnt <= 0;
                         state <= TRANSFER_DATA;
+                        test_sig <= '1';
                     end if;
 ---------------------------------------------------------------------
                 when TRANSFER_DATA =>
                     spi_ready_sig <= '0';
-                    if bit_cnt < data_length-1 then
-                        mosi_sig <= data_out(data_length-1 - bit_cnt);
-                        data_in(data_length-bit_cnt) <= MISO;
-                        bit_cnt <= bit_cnt + 1;
+                    if test_sig = '0' then
+                        if bit_cnt < data_length-1 then
+                            mosi_sig <= data_out(data_length-1 - bit_cnt);
+                            data_in(data_length-bit_cnt) <= MISO;
+                            bit_cnt <= bit_cnt + 1;
+                        else
+                            mosi_sig <= data_out(data_length-1 - bit_cnt);
+                            data_in(data_length-bit_cnt) <= MISO;
+                            state <= STOP;
+                        end if;
                     else
-                        mosi_sig <= data_out(data_length-1 - bit_cnt);
-                        data_in(data_length-bit_cnt) <= MISO;
-                        state <= STOP;
+                        test_sig <= '0';
                     end if;
 ---------------------------------------------------------------------
                 when STOP =>
                     cs_sig <= '1';
                     
                     if stop_counter < data_length then
-                        test_sig <= data_in(data_length-stop_counter);
+                        --test_sig <= data_in(data_length-stop_counter);
                     end if;
 
                     if stop_counter > 100 then
@@ -135,7 +140,7 @@ begin
     end process;
 
     -- SPI-Signale setzen
-    SCLK        <= not sclk_sig when cs_sig = '0' else '1';
+    SCLK        <= not sclk_sig when cs_sig = '0' and test_sig = '0' else '1';
     MOSI        <= mosi_sig;
     CS          <= cs_sig; 
     STATUS_LED  <= not spi_ready_sig; -- LED an, wenn SPI ready
